@@ -1,9 +1,9 @@
 <template>
   <div>
-    <!-- <div v-if="obj_length == 0">
+    <div v-if="obj_todo.length == 0">
       <h3>No to-do-list exist</h3>
-    </div> -->
-    <div v-for="todo in allToDoItems" :key="todo.id">
+    </div>
+    <div v-else v-for="todo in allToDoItems" :key="todo.id">
       <ToDoItem :todo="todo" />
     </div>
   </div>
@@ -19,10 +19,14 @@ export default {
   },
   computed: {
     ...mapGetters(["allToDoItems"]),
-    obj_length(state) {
-      console.log("state is empty");
-      return Object.keys(state.toDoItems).length;
-    },
+  },
+  data() {
+    return {
+      obj_todo: this.$store.state.toDoItems,
+    };
+  },
+  created: function () {
+    console.log(this.obj_length);
   },
 };
 </script>
