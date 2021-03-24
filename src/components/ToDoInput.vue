@@ -1,13 +1,13 @@
 <template>
   <div class="container">
-    <div class="row my-3">
+    <div class="row my-5">
       <input
         @change="update_text"
         v-bind:value="todo_text"
         class="form-control col mx-3"
         type="text"
       />
-      <button @click="add_todoObj" class="btn btn-primary">ADD</button>
+      <button @click="add_todoObj" class="btn btn-primary"><b>ADD</b></button>
     </div>
   </div>
 </template>
@@ -28,11 +28,15 @@ export default {
       this.todo_text = e.target.value;
     },
     add_todoObj() {
-      this.add_toDo({
-        id: v1(),
-        title: this.todo_text,
-      });
-      this.todo_text = "";
+      if (this.todo_text == "") {
+        alert("Fill the input");
+      } else {
+        this.add_toDo({
+          id: v1(),
+          title: this.todo_text,
+        }); //vuex action
+        this.todo_text = "";
+      }
     },
   },
 };

@@ -17,9 +17,6 @@ export default {
   components: {
     ToDoItem,
   },
-  created: function () {
-    console.log("test");
-  },
   computed: {
     ...mapGetters(["allToDoItems"]),
     obj_length(state) {

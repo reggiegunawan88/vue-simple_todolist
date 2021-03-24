@@ -1,6 +1,9 @@
 <template>
   <div id="app" class="container">
-    <h1 class="font-weight-bold">To-Do-List Apps with Vue.js</h1>
+    <h1 class="font-weight-bold">
+      To-Do-List Apps <br />
+      Vue.js
+    </h1>
     <ToDoInput />
     <ToDoList />
   </div>
